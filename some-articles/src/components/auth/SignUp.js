@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min';
+import '../../App.css';
+
 class SignUp extends Component {
     constructor(props){
         super(props);

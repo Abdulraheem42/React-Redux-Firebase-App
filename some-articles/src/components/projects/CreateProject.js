@@ -29,7 +29,7 @@ class CreateProject extends Component {
     render() {
         return (
             <div className='container'>
-                <form action="" onSubmit={this.handleSubmit.bind(this)}>
+                <form className='white' action="" onSubmit={this.handleSubmit.bind(this)}>
                 <h2 className="text-grey center">Create Project</h2>
                 <div className='row'>
                     <div className='col l12 input-field'>

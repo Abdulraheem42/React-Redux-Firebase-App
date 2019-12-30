@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min';
+import '../../App.css';
 
 class SignIn extends Component{
 constructor(props){
@@ -29,8 +30,8 @@ handleSubmit = (e) => {
     render(){
         return(
             <div className='container'>
-                <form action="" onSubmit={this.handleSubmit.bind(this)}>
-                    <h2 className="grey-text darken-text-3 center">Sign In</h2>
+                <form className='white' action="" onSubmit={this.handleSubmit.bind(this)}>
+                    <h2 className="darken-text-3 center">Sign In</h2>
                     <div className='row'>
                     <div className='col l12 input-field'>
                         <label htmlFor="email">Email</label>
