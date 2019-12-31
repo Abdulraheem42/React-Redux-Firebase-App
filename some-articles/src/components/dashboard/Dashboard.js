@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import Notification from './Notification'
 import ProjectList from '../projects/ProjectList';
+import { connect } from 'react-redux';
+
 
 class Dashboard extends Component{
     render(){
+        const { projects } = this.props;
+
         return(
             <div className='container dashboard'>
 
                 <div className='row'>
                     <div className='col s12 m6'>
-                        <ProjectList />
+                        <ProjectList projects={ projects } />
                     </div>
 
                     <div className='col s12 m5 offset-ml'>
@@ -22,5 +26,11 @@ class Dashboard extends Component{
         )
     }
 }
+const mapStateToProps = (state) => {
+    return{
+        projects:state.project.projects
+    }
+};
 
-export default Dashboard;
+
+export default connect(mapStateToProps)(Dashboard);
