@@ -11,18 +11,18 @@ class Dashboard extends Component{
         const { projects } = this.props;
 
         return(
-            <div className='container dashboard'>
-
+            <div>
+                <div className='container dashboard'>
                 <div className='row'>
-                    <div className='col s12 m6'>
                         <ProjectList projects={ projects } />
-                    </div>
 
-                    <div className='col s12 m5 offset-ml'>
-                        <Notification />
-                    </div>
+
+                    {/*<div className='col s12 l2 offset-ml'>*/}
+                    {/*    <Notification />*/}
+                    {/*</div>*/}
                 </div>
 
+            </div>
             </div>
         )
     }

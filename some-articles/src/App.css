@@ -1,8 +1,16 @@
 body{
-  background-color: rgba(227,242,252,0.99);
+  /*background-color: rgba(227,242,252,0.99);*/
 }
 
 form{
   margin-top: 100px;
   padding: 20px;
+}
+
+.card{
+  height: 400px;
+  overflow: hidden;
+}
+.content{
+  height: 80px;
 }
