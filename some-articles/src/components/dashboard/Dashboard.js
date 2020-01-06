@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import Notification from './Notification'
 import ProjectList from '../projects/ProjectList';
+import SignIn from '../auth/SignIn';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import { Redirect } from 'react-router-dom';
 
 class Dashboard extends Component{
     render(){
-        const { projects } = this.props;
+        const { projects, auth } = this.props;
+        if(!auth.uid) return <Redirect to='/signin' />;
 
         return(
             <div>
@@ -30,7 +33,8 @@ class Dashboard extends Component{
 const mapStateToProps = (state) => {
     console.log(state, 'state');
     return{
-        projects:state.firestore.ordered.projects
+        projects:state.firestore.ordered.projects,
+        auth: state.firebase.auth
     }
 };
 

@@ -3,7 +3,9 @@ import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize.min';
 import '../../App.css';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { signIn } from '../../store/actions/authActions';
+
 
 class SignIn extends Component{
 constructor(props){
@@ -30,8 +32,9 @@ handleSubmit = (e) => {
 };
 
     render(){
-        const { authError } = this.props
-        console.log(authError, 'autherror')
+        const { authError, auth } = this.props;
+        if(auth.uid) return <Redirect to='/' />;
+
         return(
             <div className='container'>
                 <form className='white' action="" onSubmit={this.handleSubmit.bind(this)}>
@@ -63,9 +66,10 @@ handleSubmit = (e) => {
 const mapStateToProps = (state) =>{
     console.log(state, 'state')
     return{
-        authError: state.auth.authError
+        authError: state.auth.authError,
+        auth: state.firebase.auth
     }
-}
+};
 
 const mapDispatchToProps = (dispatch) =>{
     return{
