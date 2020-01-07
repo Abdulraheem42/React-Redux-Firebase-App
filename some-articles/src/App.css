@@ -7,10 +7,19 @@ form{
   padding: 20px;
 }
 
-.card{
-  height: 400px;
-  overflow: hidden;
+/*.card{*/
+/*  height: 400px;*/
+/*  overflow: hidden;*/
+/*}*/
+
+.card .card-content {
+  padding: 19px 19px;
 }
+
 .content{
   height: 80px;
+}
+
+.author_detail{
+  height: auto;
 }

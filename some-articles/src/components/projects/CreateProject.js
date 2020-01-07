@@ -23,7 +23,7 @@ class CreateProject extends Component {
     handleSubmit = (e)=>{
         e.preventDefault();
         this.props.createProject(this.state);
-
+        this.props.history.push('/');
         this.setState({
             title: '',
             content: ''
@@ -41,11 +41,21 @@ class CreateProject extends Component {
                 <div className='row'>
                     <div className='col l12 s12 input-field'>
                         <label htmlFor="title">Title</label>
-                        <input type="text" value={this.state.title} id='title' name='title' onChange={this.handleChange.bind(this)} />
+                        <input type="text"
+                               required
+                               value={this.state.title}
+                               id='title'
+                               name='title'
+                               onChange={this.handleChange.bind(this)} />
                     </div>
                     <div className='col l12 s12 input-field'>
                         <label htmlFor="content">Content</label>
-                        <input type="text" value={this.state.content} id='content' name='content' onChange={this.handleChange.bind(this)} />
+                        <input type="text"
+                               required
+                               value={this.state.content}
+                               id='content'
+                               name='content'
+                               onChange={this.handleChange.bind(this)} />
                     </div>
                     <div className='col l12 s12 input-field center'>
                         <button type='submit' className='btn btn-large blue z-depth-2'>Submit</button>
