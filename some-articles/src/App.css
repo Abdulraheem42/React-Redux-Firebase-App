@@ -7,11 +7,6 @@ form{
   padding: 20px;
 }
 
-/*.card{*/
-/*  height: 400px;*/
-/*  overflow: hidden;*/
-/*}*/
-
 .card .card-content {
   padding: 19px 19px;
 }
@@ -22,4 +17,14 @@ form{
 
 .author_detail{
   height: auto;
+}
+.card-content{
+  padding: 10px;
+}
+.notification{
+  font-size: 20px;
+  font-weight: bold;
+}
+.notification-name{
+  font-weight: bold;
 }
