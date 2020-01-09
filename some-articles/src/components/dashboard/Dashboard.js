@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import Notification from './Notification'
 import ProjectList from '../projects/ProjectList';
-import SignIn from '../auth/SignIn';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
+import div from 'react-shimmer'
 
 class Dashboard extends Component{
     render(){
@@ -18,12 +18,21 @@ class Dashboard extends Component{
                     <div className='row'>
 
                         <div className='col l9 container-fluid dashboard'>
-                            <div className='row'>
+                            {projects ? <div className='row'>
                                 <ProjectList projects={ projects } />
-                            </div>
+                            </div> : <div className="progress">
+                                <div className="indeterminate"></div>
+                            </div>}
+
                         </div>
+
                         <div className='col l3 offset-ml'>
-                            <Notification notifications={notifications} />
+                            {notifications ? <Notification notifications={notifications} /> :
+                                <div className="progress">
+                                    <div className="indeterminate"></div>
+                                </div>
+                            }
+
                         </div>
                     </div>
             </div>

@@ -64,7 +64,7 @@ handleSubmit = (e) => {
                         </button>
                     </div>
                         <div className='red-text center'>
-                            {authError ? <p className='blue'>{authError}</p> : null}
+                            {authError ? <p>{authError}</p> : null}
                         </div>
                     </div>
                 </form>

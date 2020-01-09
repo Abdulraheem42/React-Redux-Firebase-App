@@ -11,11 +11,11 @@ const ProjectSummary = ({project}) =>{
     return(
         <div className="card">
             <div className="card-image">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQWSaMbdWUwuxfepMUdBT9QehCknnmy8GYppD54sSFMuaTUh_SW" />
+                <img alt="Oops!" src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQWSaMbdWUwuxfepMUdBT9QehCknnmy8GYppD54sSFMuaTUh_SW'/>
             </div>
             <div className="card-content black-text">
                 <span className="card-title">{project.title}</span>
-                <p className='grey-text content'>{firstTenWords}<a href=""> Read More...</a></p>
+                <p className='grey-text content'>{firstTenWords}<span className='blue-text'> Read More...</span></p>
             </div>
             <div className='grey-text card-action'>
                 <span>Post By: { authorFirstName } { authorLastName }</span><br/>
