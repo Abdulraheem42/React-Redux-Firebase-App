@@ -28,3 +28,14 @@ form{
 .notification-name{
   font-weight: bold;
 }
+
+.not_found img{
+  width: 100%;
+  height: 90vh;
+  position: relative;
+}
+
+.back_btn{
+  position: absolute;
+  top: 80vh;
+  left: 43%;}

@@ -17,6 +17,9 @@ return(
         <div className='card z-depth-2'>
             <div className='card-content'>
                 <span className='card-title '>{project.title}</span>
+                <img height='500px' width='100%' alt="Oops!"
+                     src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQWSaMbdWUwuxfepMUdBT9QehCknnmy8GYppD54sSFMuaTUh_SW'/>
+
                 <p>{project.content}</p>
             </div>
             <div className='card-action lighten-4 grey-text'>

@@ -37,7 +37,7 @@ class CreateProject extends Component {
         return (
             <div className='container'>
                 <form className='white' action="" onSubmit={this.handleSubmit.bind(this)}>
-                <h2 className="text-grey center">Create Project</h2>
+                <h2 className="text-grey center">Write your Article</h2>
                 <div className='row'>
                     <div className='col l12 s12 input-field'>
                         <label htmlFor="title">Title</label>
