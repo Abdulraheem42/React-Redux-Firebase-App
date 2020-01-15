@@ -6,36 +6,55 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
-import div from 'react-shimmer'
+import Footer from '../layout/Footer';
+import ReactLoading from 'react-loading';
+
 
 class Dashboard extends Component{
+    constructor(props) {
+        super(props);
+        this.state = ({
+            isLoaded: false
+        })
+    }
+
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                isLoaded: true
+            })
+        }, 2000);
+    }
+
     render(){
-        const { projects, auth, notifications } = this.props;
+        const { isLoaded } = this.state
+        const { projects, auth, notifications, spin, skyblue } = this.props;
         if(!auth.uid) return <Redirect to='/signin' />;
 
         return(
+
             <div className='container-fluid'>
+                {isLoaded ?
                     <div className='row'>
-
                         <div className='col l9 container-fluid dashboard'>
-                            {projects ? <div className='row'>
+                            <div className='row'>
                                 <ProjectList projects={ projects } />
-                            </div> : <div className="progress">
-                                <div className="indeterminate"></div>
-                            </div>}
-
+                            </div>
                         </div>
 
                         <div className='col l3 offset-ml'>
-                            {notifications ? <Notification notifications={notifications} /> :
-                                <div className="progress">
-                                    <div className="indeterminate"></div>
-                                </div>
-                            }
-
+                            <Notification notifications={notifications} />
                         </div>
-                    </div>
+                    </div> :
+                   <div className='container loading'>
+                    <ReactLoading type={spin} color='skyblue' height={300} width={200} />
+                   </div>
+                    }
+                    <Footer />
             </div>
+
+
         )
     }
 }

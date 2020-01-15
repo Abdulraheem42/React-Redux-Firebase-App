@@ -12,7 +12,8 @@ constructor(props){
     super(props);
     this.state = {
         email: '',
-        password: ''
+        password: '',
+        isLoaded: false
     }
 }
 
@@ -26,15 +27,16 @@ handleSubmit = (e) => {
     e.preventDefault();
     this.setState({
         email: '',
-        password: ''
-    })
+        password: '',
+        isLoaded: true
+    });
     this.props.signIn(this.state);
 };
 
     render(){
+        const { isLoaded } = this.state
         const { authError, auth } = this.props;
         if(auth.uid) return <Redirect to='/' />;
-
         return(
             <div className='container'>
                 <form className='white' action="" onSubmit={this.handleSubmit.bind(this)}>
@@ -60,7 +62,20 @@ handleSubmit = (e) => {
                     </div>
                     <div className='col l12 m12 s12 input-field center'>
                         <button type='submit' className='btn blue btn-large lighten-1 z-depth-2'>
-                            Login
+                            Login{isLoaded ?
+                            <div className="preloader-wrapper small active">
+                            <div className="spinner-layer spinner-green-only">
+                                <div className="circle-clipper left">
+                                    <div className="circle"></div>
+                                </div>
+                                <div className="gap-patch">
+                                    <div className="circle"></div>
+                                </div>
+                                <div className="circle-clipper right">
+                                    <div className="circle"></div>
+                                </div>
+                            </div>
+                            </div> : null}
                         </button>
                     </div>
                         <div className='red-text center'>

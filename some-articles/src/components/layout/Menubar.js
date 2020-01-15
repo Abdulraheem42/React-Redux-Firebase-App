@@ -18,7 +18,6 @@ class Menubar extends Component{
 render(){
 
         const { auth, profile, signOut } = this.props
-    console.log(signOut, 'signout')
     const { initials } = profile;
     const fullName = profile.firstName + " " + profile.lastName;
     const links = auth.uid ? <SignedInLinks profile={ profile } /> : <SignedOutLinks />;
@@ -63,6 +62,10 @@ render(){
                                 Settings
                             </NavLink>
                             </li>
+                            <li><NavLink to=''><i className="large material-icons">info</i>
+                                About Us
+                            </NavLink>
+                            </li>
                             <li><NavLink to = '/' onClick={signOut}><i className="large material-icons">exit_to_app</i>
                                 Log Out
                                 </NavLink>
@@ -77,6 +80,10 @@ render(){
                             <li><NavLink to='/signin'><i className="large material-icons">person</i>
                                 SignIn
                                 </NavLink>
+                            </li>
+                            <li><NavLink to=''><i className="large material-icons">info</i>
+                                About Us
+                            </NavLink>
                             </li>
                         </ul>
                     }

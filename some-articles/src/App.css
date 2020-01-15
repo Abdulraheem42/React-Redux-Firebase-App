@@ -39,3 +39,10 @@ form{
   position: absolute;
   top: 80vh;
   left: 43%;}
+
+.loading{
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

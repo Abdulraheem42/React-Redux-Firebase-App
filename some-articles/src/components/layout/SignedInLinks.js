@@ -10,7 +10,7 @@ const SignedInLinks = (props)=>{
     return(
         <ul className="black-text darken-2">
             <li><NavLink to='/create'>New Article</NavLink></li>
-            <li><NavLink to='/'><span onClick={props.signOut}>Log Out</span></NavLink></li>
+            <li><NavLink to='/' onClick={props.signOut}>Log Out</NavLink></li>
             <li title={ fullName }><NavLink to='/' className='btn btn-floating light-blue'>{ initials }</NavLink></li>
         </ul>
     )

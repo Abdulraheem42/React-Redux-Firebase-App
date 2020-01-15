@@ -14,7 +14,8 @@ class SignUp extends Component {
             firstName: '',
             lastName: '',
             email: '',
-            password: ''
+            password: '',
+            isLoaded: false
         })
     }
 
@@ -33,14 +34,16 @@ class SignUp extends Component {
             firstName: '',
             lastName: '',
             email: '',
-            password: ''
+            password: '',
+            isLoaded: true
         });
+
     };
 
 
     render() {
+        const { isLoaded } = this.state
         const { auth, authError } = this.props;
-        console.log(authError, 'autherror')
         if(auth.uid) return <Redirect to='/' />;
 
         return (
@@ -86,7 +89,20 @@ class SignUp extends Component {
                         </div>
                         <div className='col l12 m12 s12 center'>
                             <button type='submit' className='btn btn-large blue lighten-1 z-depth-2'>
-                                SignUp
+                                SignUp{isLoaded ?
+                                <div className="preloader-wrapper small active">
+                                    <div className="spinner-layer spinner-green-only">
+                                        <div className="circle-clipper left">
+                                            <div className="circle"></div>
+                                        </div>
+                                        <div className="gap-patch">
+                                            <div className="circle"></div>
+                                        </div>
+                                        <div className="circle-clipper right">
+                                            <div className="circle"></div>
+                                        </div>
+                                    </div>
+                                </div> : null}
                             </button>
                         </div>
                         <div className='red-text center'>
