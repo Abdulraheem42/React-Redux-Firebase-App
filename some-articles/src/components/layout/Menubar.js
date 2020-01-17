@@ -12,7 +12,7 @@ class Menubar extends Component{
 
     componentDidMount() {
         var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems);
+        M.Sidenav.init(elems);
     }
 
 render(){
@@ -23,7 +23,8 @@ render(){
     const links = auth.uid ? <SignedInLinks profile={ profile } /> : <SignedOutLinks />;
     return(
         <div>
-                <nav className="grey darken-3">
+            <div className='navbar-fixed'>
+                <nav className=" grey darken-3 fixed">
                     <div className="nav-wrapper container">
                         <Link to="/" className="left brand-logo">SomeArticles</Link>
                         <a href="#" data-target="mobile-demo" className="sidenav-trigger right"><i className="material-icons">menu</i></a>
@@ -32,7 +33,7 @@ render(){
                         </ul>
                     </div>
                 </nav>
-
+            </div>
                 <nav className='sidenav sidenav-close' id='mobile-demo'>
                     {auth.uid ?
                         <ul>
