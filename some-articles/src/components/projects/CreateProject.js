@@ -10,27 +10,36 @@ class CreateProject extends Component {
         super(props);
         this.state = ({
             title: '',
-            content: ''
+            content: '',
+            // image: [],
+            // url: ''
         })
     }
 
     handleChange = (e)=>{
         this.setState({
+            // image: e.target.files,
             [e.target.name]: e.target.value
         })
+        console.log(this.state, 'this.state')
     };
 
     handleSubmit = (e)=>{
         e.preventDefault();
+        // const { image } = this.state;
+        // const imageFile = image[0].name
+        // console.log(image[0].name, 'image in submit')
         this.props.createProject(this.state);
         this.props.history.push('/');
         this.setState({
             title: '',
-            content: ''
+            content: '',
+            // image: ''
         });
     };
 
     render() {
+        console.log(this.state, 'this.state')
         const { auth } = this.props;
         if(!auth.uid) return <Redirect to='/signin' />;
 
@@ -57,6 +66,15 @@ class CreateProject extends Component {
                                name='content'
                                onChange={this.handleChange.bind(this)} />
                     </div>
+                    {/*<div className='col l12 s12 input-field'>*/}
+                    {/*    /!*<label htmlFor="content">Upload Image</label>*!/*/}
+                    {/*    <input type="file"*/}
+                    {/*           required*/}
+                    {/*           // value={this.state.image}*/}
+                    {/*           // id='image'*/}
+                    {/*           // name='image'*/}
+                    {/*           onChange={this.handleChange.bind(this)} />*/}
+                    {/*</div>*/}
                     <div className='col l12 s12 input-field center'>
                         <button type='submit' className='btn btn-large blue z-depth-2'>Submit</button>
                     </div>
